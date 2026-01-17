@@ -1,19 +1,17 @@
 <template>
-	<div class="home">
+	<div class="page">
 		<h1>Home Page</h1>
 		<p>Welcome {{ username }}!</p>
 	</div>
 </template>
 
 <script setup>
-import { ref } from "vue"
-
-const username = ref("")
+import { computed } from "vue"
+import { useStore } from "vuex"
+const store = useStore()
+const username = computed(() => store.getters.username)
 </script>
 
 <style scoped>
-.home {
-	padding: 2rem;
-	text-align: center;
-}
+.page { padding: 2rem; text-align: center; }
 </style>

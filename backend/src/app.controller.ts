@@ -11,11 +11,11 @@ interface RequestWithUser extends Request {
 export class AppController {
   @UseGuards(AuthGuard)
   @Get()
-  getHello(@Req() request: RequestWithUser) {
+  getCurrentUser(@Req() request: RequestWithUser) {
     return {
       id: request.user.id,
       username: request.user.username,
-      role: request.user.role,
+      roles: request.user.roles,
       status: request.user.status,
     };
   }
